@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Rotating Navigation</title>
+</head>
+<body>
+    <!-- I.01. We start out with a container: (NOTE: That wraps everything) -->
+    <div class="container">
+        <!-- I.02. Then we add a circle container: (NOTE: Which will wrap the circle) -->
+        <div class="circle-container">
+            <!-- NOTE: "circle" is gonna be the nav with the buttons  -->
+            <div class="circle">
+                <!-- I.03. We add two buttons for closing and opening nav: (NOTE: We use icon from fontawesome) -->
+                <!-- NOTE: Now we should be able to see these icons! -->
+                <button id="close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button id="open">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- I.04. We add the content: (NOTE: After the "circle-container") -->
+        <div class="content">
+            <h1>Amazing Article</h1>
+            <small>Florin Pop</small>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quia necessitatibus minus debitis laudantium accusantium illo, error ut laboriosam magni corporis, ipsum ipsam itaque impedit corrupti libero eaque ratione doloribus quam, eveniet molestiae. Dicta saepe eveniet aliquid eos quae, placeat deleniti ipsa ullam excepturi perspiciatis sed alias repellendus. Illo ea, ex ducimus natus maiores dolor corporis possimus autem incidunt laborum eos, eligendi dicta voluptatum veniam labore libero aspernatur nam fugiat? Sapiente quidem dignissimos est. Ex eum soluta nobis dolorum magni dolorem veritatis, adipisci et nisi consequuntur. Inventore vel minus consectetur a eveniet, dolorum pariatur dignissimos voluptatum obcaecati, laborum ullam hic.</p>
+            <h3>My Dog</h3>
+            <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="Dog" srcset="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam quo saepe adipisci quibusdam fugit quas voluptates consequuntur possimus neque? Illum natus eius veritatis, tenetur provident consequatur praesentium accusantium molestiae aliquid? Dicta reiciendis quas neque modi illum, ducimus quos velit assumenda quisquam ex nobis explicabo fuga id rem, voluptate numquam nisi aperiam iste aliquam quia sapiente non dolore? Veritatis eius aperiam alias ipsa. Quae, assumenda et accusamus vitae perferendis itaque perspiciatis, provident ea, obcaecati mollitia deleniti.</p>
+        </div>
+    </div>
+    <!-- I.05. We add our nav: (NOTE: Outside from the container div) -->
+    <!-- AFTER: We do the styling in style.css (I.06.) -->
+    <nav>
+        <!-- NOTE: Inside we create a list, and we use fontawesome icons again -->
+        <ul>
+            <li><i class="fas fa-home"></i> Home</li>
+            <li><i class="fa-solid fa-user-alt"></i> About</li>
+            <li><i class="fas fa-envelope"></i> Contact</li> 
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* I.06. Adding styles to the body first: */
+body {
+    font-family: 'Lato ', sans-serif;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    /* height: 100vh; */
+    background-color: #333;
+    color: #222;
+    /* NOTE: We use "overflow" on hidden, because we don't want scroll bars to be shown by default */
+    /* NOTE: "overflow-x" only allows us to scroll up and down with the scrollbar */
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* I.07. We're styling the container: */
+.container {
+    background-color: #fafafa;
+    /* NOTE: We have to make sure that it's going to rotate from the left corner, so we have to set the transform-origin here! */
+    transform-origin: top left;
+    /* NOTE: We also have to add a transition for the rotation (we have to use the transform property) */
+    transition: transform 0.5s linear;
+    /* NOTE: Add width and set up to take the whole viewport horizontally */
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+/* I.08. We do the rotation for the container with show-nav: */
+/* NOTE: Add the show-nav class to the container in the html */
+.container.show-nav {
+    /* NOTE: We can rotate it with the transform property */
+    transform: rotate(-20deg);
+}
+
+/* I.09. Then we work with .circle-container: */
+.circle-container {
+    position: fixed;
+    /* NOTE: By setting these to -100 will move the circle outside of the border => Test it by changing the nubmers!! */
+    top: -100px;
+    left: -100px;
+}
+
+/* I.10. Styling the circle: */
+.circle {
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    /* NOTE: We can turn it to a half circle by setting the border-radius */
+    border-radius: 50%;
+    /* NOTE: We have to set position to "relative" => and set it "absolute" for the icons */
+    position: relative;
+    /* NOTE: We also have to set transition for the transform */
+    transition: transform 0.5s linear;
+}
+
+/* II.16. When a container has show-nav on it, then we want to rotate the circle: */
+.container.show-nav .circle {
+    /* NOTE: Here we can rotate the circle */
+    transform: rotate(-70deg);
+}
+
+
+/* I.11. Then we style the circle buttons: (NOTE: Technically styling the icons) */
+.circle button {
+    cursor: pointer;
+    /* NOTE: We have to position them "absolute" */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background-color: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+/* I.12. There's still a border that we want to get rid of: */
+.circle button:focus {
+    outline: none;
+}
+
+/* I.13. Now we style them separately, by using the open id first: */
+.circle button#open {
+    /* NOTE: We set it 60% from the left side */
+    left: 60%;
+}
+
+/* I.14. We do the same thing with close id: */
+.circle button#close {
+    /* NOTE: This is relative to the circle */
+    top: 60%;
+    /* NOTE: Adding transform, and transform origin ≈> This will hide, and rotate the close button */
+    transform: rotate(90deg);
+    /* NOTE: We're fixing the starting rotation point to the "top left" */
+    transform-origin: top left;
+}
+
+/* II.11. By setting up this, we will bring back the nav items to their original place: */
+/* AFTER: Now we'll move to js, and add the functionality (II.12.) */
+.container.show-nav + nav li {
+    transform: translateX(0);
+    /* NOTE: We also want to add a delay => This means it will come a bit after the rotation! */
+    transition-delay: 0.3s;
+}
+
+/* II.05. Styling the nav bar: */
+nav {
+    /* NOTE: We want to position it to be fixed (down to the bottom */
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    /* NOTE: We're setting z-index to 100 => This will place nav to front */
+    z-index: 100; 
+}
+
+/* II.06. Then we move to nav ul: */
+nav ul {
+    /* NOTE: We get rid of the bulletpoint first */
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+/* II.07. Then we want to style the list items: */
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    /* NOTE: We need to move it to the left (as a default) => -100 will bring it to left  */
+    /* transform: translateX(-100%); */
+    /* NOTE: We set a transition to come out smoothly */
+    transition: transfrom 0.4s ease-in ;
+}
+
+/* II.08. We add some space between the icons: */
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* II.09. Adding margin-left to the nav items: */
+nav ul li + li {
+    margin-left: 15px;
+    /* NOTE: This is going to be over the page, so we have to set transform: and push it 150% to the left */
+    transform: rotateX(-150%);
+}
+
+/* II.10. Same thing with the last nav item:  */
+/* AFTER: We have to set .container.show-nav above (II.11.) */
+nav ul li + li + li {
+    margin-left: 30px;
+    /* NOTE: This is going to be even more over the page, so we have to set transform: and push it 200% to the left */
+    transform: rotateX(-200%);
+}
+
+/* I.15. We're fixing the image: */
+.container img {
+    /* NOTE: This is going to take 100% of the container! */
+    max-width: 100%;
+}
+
+/* II.01. Before we move to javascript, we add more styles to .content */
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+/* II.02. Styling .content h1: */
+.content h1 {
+    margin: 0;
+}
+
+/* II.03. Styling the small tag: */
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+/* II.04. Styling the paragraph: */
+/* AFTER: Above we have to style the nav, and everything inside that (II.05.) */
+.content p {
+    color: #333;
+    line-height: 1.5;
+}
+
+
+
